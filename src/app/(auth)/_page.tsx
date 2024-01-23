@@ -243,7 +243,12 @@ const formFields = {
 export default function AuthPage() {
   return (
     <Authenticator formFields={formFields} components={components}>
-      {({ signOut }) => <button onClick={signOut}>Sign out</button>}
+      {({ signOut, user }) => (
+        <div>
+          <h1>Hello {user?.username}</h1>
+          <button onClick={signOut}>Sign out</button>
+        </div>
+      )}
     </Authenticator>
   );
 }
